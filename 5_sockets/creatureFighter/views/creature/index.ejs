@@ -1,0 +1,25 @@
+<div id="page_wrapper">
+  <h2>Select the Creatures to battle</h2>
+  
+  <hr/>
+  <form action="/creature/battle" method="post" class="form" id="battle-form">
+    <label for="creature1">Creature 1</label>
+    <select name="creature1" id="creature1">
+      <% creatures.forEach(function (creature) { %>
+      <option value="<%= creature.id %>"><%= creature.name %></option>
+      <% }) %>
+    </select>
+    <label for="creature2">Creature 2</label>
+    <select name="creature2" id="creature2">
+      <% creatures.forEach(function (creature) { %>
+      <option value="<%= creature.id %>"><%= creature.name %></option>
+      <% }) %>
+    </select>
+    <input type="submit" value="Battle!">
+  </form>
+              
+</div>
+
+<%- partial('partials/footer') %>
+
+

@@ -1,0 +1,2 @@
+# creatureFighter
+### a Sails application

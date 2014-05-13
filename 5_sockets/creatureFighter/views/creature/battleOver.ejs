@@ -1,0 +1,10 @@
+<div id="page_wrapper">
+  <h1>Battle Finished, <%= session.winner %> Won!</h1>
+  
+  <h3>Loser:</h3>
+  <p><%= session.loser %></p>
+  <br/>
+  <a href="/">New Battle</a>
+</div>
+
+<%- partial('partials/footer') %>

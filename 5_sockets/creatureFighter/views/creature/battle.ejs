@@ -1,0 +1,67 @@
+<div id="page_wrapper">
+  <% if (typeof(violentOffender) == 'undefined') { %>
+  
+  <div class="violent-offender">
+    <h3><%= creatures[0].name %></h3>
+    <p>Hitpoints: <strong><%= creatures[0].hp %></strong></p>
+    <p>Type: <strong><%= creatures[0].type %></strong></p>
+  </div>
+  <h2>VS</h2>
+  <div class="victim">
+    <h3><%= creatures[1].name %></h3>
+    <p>Hitpoints: <strong><%= creatures[1].hp %></strong></p>
+    <p>Type: <strong><%= creatures[1].type %></strong></p>
+  </div>
+  
+  <hr/>
+  <form action="/creature/attack" method="post" class="form" id="battle-form">
+    <p><%= creatures[0].name %>'s turn to attack</p>
+    <h3>Choose Attack</h3>
+    <input type="text" readonly="true" value="<%= creatures[0].name %>" name="attackerName">
+    <input type="hidden" name="violentOffender" value="<%= creatures[0].id %>">
+    <input type="hidden" name="violentOffenderHP" value="<%= creatures[0].hp %>">
+    <select name="attackIndex">
+      <% creatures[0].attacks.forEach(function (attack) { %>
+      <option value="<%= attack.index %>"><%= attack.name %>: <%= attack.damage %></option>
+      <% }) %>
+    </select>
+    <input type="hidden" name="victim" value="<%= creatures[1].id %>">
+    <input type="hidden" name="victimHP" value="<%= creatures[1].hp %>">
+    <input type="submit" value="Attack!">
+  </form>
+  
+  <% } else { %>
+  <h1 class="attack"><%= attack %></h1>
+  
+  <div class="violent-offender">
+    <h3><%= violentOffender.name %></h3>
+    <p>Hitpoints: <strong><%= violentOffender.hp %></strong></p>
+  </div>
+  <h2>VS</h2>
+  <div class="victim">
+    <h3><%= victim.name %></h3>
+    <p>Hitpoints: <strong><%= victim.hp %></strong></p>
+  </div>
+  
+  <hr/>
+  <form action="/creature/attack" method="post" class="form" id="battle-form">
+    <p><%= victim.name %>'s turn to attack</p>
+    <h3>Choose Attack</h3>
+    <input type="text" readonly="true" value="<%= victim.name %>" name="attackerName">
+    <input type="hidden" name="violentOffender" value="<%= victim.id %>">
+    <input type="hidden" name="violentOffenderHP" value="<%= victim.hp %>">
+    <select name="attackIndex">
+      <% victim.attacks.forEach(function (attack) { %>
+      <option value="<%= attack.index %>"><%= attack.name %>: <%= attack.damage %></option>
+      <% }) %>
+    </select>
+    <input type="hidden" name="victim" value="<%= violentOffender.id %>">
+    <input type="hidden" name="victimHP" value="<%= violentOffender.hp %>">
+    <input type="submit" value="Attack!">
+  </form>
+  
+  <% } %>
+              
+</div>
+
+<%- partial('partials/footer') %>
