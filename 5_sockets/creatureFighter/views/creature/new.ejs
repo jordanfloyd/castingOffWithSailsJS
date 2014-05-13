@@ -1,0 +1,25 @@
+<div id="page_wrapper">
+  <h2>Select the Creatures to battle</h2>
+  
+  <hr/>
+  <form action="/creature/create" method="post" class="form" id="battle-form">
+    <label>Name:</label>
+    <input type="text" name="name">
+    <br/>
+    <label>Hitpoints:</label>
+    <input type="text" name="hp">
+    <br/>
+    <label>Type:</label>
+    <input type="text" name="type">
+    <br/>
+    <label>Accuracy:</label>
+    <input type="text" name="accuracy">
+    <br/>
+    <input type="submit" value="create creature!">
+  </form>
+              
+</div>
+
+<%- partial('partials/footer') %>
+
+

@@ -1,5 +1,11 @@
 <div id="page_wrapper">
-  <h2>Select the Creatures to battle</h2>
+  <% creatures.forEach(function (creature) { %>
+    <p>Name: <strong><%= creature.name %></strong><br/>
+    Hitpoints: <strong><%= creature.hp %></strong><br/>
+    Type: <strong><%= creature.type %></strong></p>
+    <% }) %>
+  
+  <h2 id="insert_data">Select the Creatures to battle</h2>
   
   <hr/>
   <form action="/creature/battle" method="post" class="form" id="battle-form">

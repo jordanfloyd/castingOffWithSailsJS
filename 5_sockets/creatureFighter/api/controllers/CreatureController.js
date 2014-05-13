@@ -90,6 +90,19 @@ module.exports = {
       });
     });
   },
+  
+  subscribe: function(req, res, next) {
+        
+    Creature.find(function foundCreatures(err, creatures) {
+        if (err) return next(err);
+            
+        Creature.subscribe(req.socket);
+        
+        Creature.subscribe(req.socket, creatures);
+            
+        res.send(200);
+    });           
+  },
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to CreatureController)

@@ -28,15 +28,9 @@
       ///////////////////////////////////////////////////////////
       log('New comet message received :: ', message);
       //////////////////////////////////////////////////////
-      
-      if (message.model === 'creature') {
-        $('#insert_data').before('<p>Name: <strong>' + message.data.name +'</strong><br/>Hitpoints: <strong>' + message.data.hp + '</strong><br/>Type: <strong>' + message.data.type + '</strong></p>')
-      }
-      //location.reload();
 
     });
-    
-    socket.get('/creature/subscribe');
+
 
     ///////////////////////////////////////////////////////////
     // Here's where you'll want to add any custom logic for
@@ -75,4 +69,3 @@
   window.io
 
 );
-
