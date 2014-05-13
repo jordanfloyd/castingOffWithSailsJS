@@ -1,0 +1,14 @@
+<div id="page_wrapper">
+  <h3>Creature</h3>
+  <p>Name: <strong><%= creature.name %></strong></p>
+  <p>Hitpoints: <strong><%= creature.hp %></strong></p>
+  <p>Type: <strong><%= creature.type %></strong></p>
+  <p>Attacks: 
+    <ul>
+    <% creature.attacks.forEach(function (attack) { %>
+      <li><%= attack.name %>: <%= attack.damage %></li>
+    <% }) %>
+    </ul>  
+  </p>
+  <p>Accuracy: <strong><%= creature.accuracy %></strong></p>
+</div>
